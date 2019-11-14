@@ -1,14 +1,29 @@
 from django.shortcuts import render
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
+from django.contrib.auth.forms import UserCreationForm
+from django.urls import reverse_lazy
+from django.views.generic import CreateView
 
 from wiki.models import Page
+
+class SignUpView(CreateView):
+    form_class = UserCreationForm
+    success_url = reverse_lazy('login')
+    template_name = 'registration/signup.html'
+
+# class PageCreateView(FormView):
+#   template_name = 'create-page.html
+#   form_class = PageForm
+#   success_url = '/'
+
+#     def post(self, request):
+#       page_form = 
 
 
 class PageListView(ListView):
     """ Renders a list of all Pages. """
     model = Page
-
     def get(self, request):
         """ GET a list of Pages. """
         pages = self.get_queryset().all()

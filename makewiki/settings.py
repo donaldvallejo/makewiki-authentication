@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
+    'accounts',
     'wiki'
 ]
 
@@ -138,6 +138,8 @@ LOGOUT_REDIRECT_URL = "/"
 # Required for Heroku
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
+# Added From Instructions
+DEFAULT_LOGOUT_URL = '/'
 
 # PROTIP:
 # Need to override settings? Create a local_settings.py file
